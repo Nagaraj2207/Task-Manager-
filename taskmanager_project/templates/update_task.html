@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/trademark.png' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Task Manager App</title>
+    <link rel="stylesheet" href="{% static "css/add_task.css" %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url "home" %}">
+        <img src="{% static "images/task.png" %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        &nbsp TaskManager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+          <ul class="navbar-nav"> 
+              <li class="nav-item">
+              <a class="nav-link" href="{% url "task_app_home" %}">Dashboard</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav"> 
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "view_task" %}">View Task</a>
+              </li>
+          </ul>
+        </div> 
+        <div class="collapse navbar-collapse justify-content-end"" id="navbarNav">
+          <ul class="navbar-nav"> 
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "home" %}">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% for task in tasks%}
+    <div class="container mt-5">
+        <form method="post" class="task-form bg-light p-4 rounded">
+            {% csrf_token %}
+            <h1 class="mb-4">Update Task</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="title">Task Title:</label>
+                        <input type="text" id="title" name="title" class="form-control" value="{{ task.title }}" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" name="description" disabled rows="3">{{ task.description }}</textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="completed">Completed:</label>
+                        <select class="form-select" id="completed" name="completed">
+                            <option value="no" {% if task.completed == 'no' %} selected {% endif %}>No</option>
+                            <option value="yes" {% if task.completed == 'yes' %} selected {% endif %}>Yes</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="due_date">Due Date:</label>
+                        <input type="datetime-local" id="due_date"  disabled name="due_date" class="form-control" value="{{task.due_date|date:'Y-m-d\TH:i'}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="priority">Priority:</label>
+                        <select class="form-select" id="priority" disabled name="priority">
+                            <option value="high" {% if task.priority == 'high' %} selected {% endif %}>High</option>
+                            <option value="medium" {% if task.priority == 'medium' %} selected {% endif %}>Medium</option>
+                            <option value="low" {% if task.priority == 'low' %} selected {% endif %}>Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <center><button type="submit" onclick="myFunction()" class="btn btn-primary">Submit</button></center>
+        </form>
+    </div>
+    {% endfor %}
+    <script>
+        function myFunction()
+        {
+          alert("Task updated successfully!");
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>      
+</body>
+</html>

@@ -1,0 +1,37 @@
+body {
+    background: linear-gradient(to right, #3498db, #2c3e50);
+  }
+  
+  
+  .task-form { 
+    margin-top: 10%;
+    margin-left: 20px;
+    width: 50%;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+   .task-form h1 p {
+    font-size: 24px;
+    margin-top: 40%;
+    text-align: center;
+  }
+  
+  
+  
+  
+  .navbar-nav .nav-item .nav-link {
+    padding: 10px 20px;
+    color: black;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+    color: white;
+    text-decoration: none;
+  }
+  
+  
