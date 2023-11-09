@@ -48,8 +48,10 @@ Add this things in this settings.py
 
 *In Database - 'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': ' ', 'USER':' ', 'PASSWORD':' ', 'HOST':'<'your localhost'> ', 'PORT':''}
 Use Your Database details or use default sqllite3 database
-
-In cmd Prompt pip install pymysql #for creating model as Existing Table
+```bash
+pip install pymysql
+```
+#for creating model as Existing Table
 
 2. Install the required dependencies using pip:
 
