@@ -38,9 +38,10 @@ To run this project locally, follow these steps:
 1. Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/yourusername/task-manager.git
-(or) Download the Project Folder in rar type and Extract it. 
+git clone https://github.com/yourusername/task-manager.git 
 ```
+(or) Download the Project Folder in rar type and Extract it.
+
 Open VSCode and Open the Project Folder . In VSCode Open Settings.py
 
 Add this things in this settings.py
@@ -54,8 +55,8 @@ In cmd Prompt pip install pymysql #for creating model as Existing Table
 
 ```bash
 pip install Django
-and all required pip install
 ```
+and all required pip install.
 
 3. Create a database and apply migrations:
 
