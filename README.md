@@ -42,12 +42,13 @@ git clone https://github.com/yourusername/task-manager.git
 ```
 (or) Download the Project Folder in rar type and Extract it.
 
-Open VSCode and Open the Project Folder . In VSCode Open Settings.py
+1.1. Open VSCode and Open the Project Folder . In VSCode Open Settings.py
 
 Add this things in this settings.py
 
 *In Database - 'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': ' ', 'USER':' ', 'PASSWORD':' ', 'HOST':'<'your localhost'> ', 'PORT':''}
 Use Your Database details or use default sqllite3 database
+
 ```bash
 pip install pymysql
 ```
